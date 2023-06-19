@@ -1,0 +1,84 @@
+/* Home Page */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 80vh;
+  margin-top: 5%;
+}
+
+/* Number of Rounds input text */
+#num-rounds{
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 13px;
+    width: 100px;
+    text-align: center;
+    border: 2px solid black;    
+}
+
+/* Start Game button */
+#start-button{
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 13px;
+    text-align: center;
+    border: 2px solid black;
+    text-decoration: bold;
+    box-shadow: 0 6px #999;
+}
+
+#start-button:hover {
+  background-color: #3e8e41;
+}
+
+#start-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/* Game Page */
+
+.game-container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.game-header{
+    margin-top: 20%;
+}
+
+.move-choices{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.move-choice-button{
+    margin: 0 10px;
+    height: 200px;
+    width: 200px;
+}
+
+#rock-button{
+  rotate: 90deg;
+}
+
+#scissors-button{
+  rotate: 45deg;
+}
+
+#paper-button{
+  rotate: 90deg;
+}
