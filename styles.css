@@ -54,8 +54,10 @@
 }
 
 .game-header{
-    margin-top: 20%;
+    margin-top: 15%;
+    height: 150px;
 }
+
 
 .move-choices{
     display: flex;
@@ -71,6 +73,16 @@
     width: 200px;
 }
 
+.move-choice-button:hover {
+  background-color: #3e8e41;
+}
+
+.move-choice-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 #rock-button{
   rotate: 90deg;
 }
@@ -81,4 +93,71 @@
 
 #paper-button{
   rotate: 90deg;
+}
+
+.move-choice-button:hover {
+  background-color: #3e8e41;
+}
+
+#result-text{
+  display: none;
+  font-size: 30px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15%;
+  height: 150px;
+}
+
+.result-choices{
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.result-image{
+  margin: 0 20px;
+  height: 100px;
+  width: 100px;
+}
+
+.score-display{
+  display: none;
+  flex-direction: column;
+  /* make a thick border around the div */
+  border: 5px solid black;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+#play-again-button{
+  display: none;
+  background-color: green;
+  color: white;
+  padding: 5px;
+  border-radius: 13px;
+  text-align: center;
+  border: 2px solid black;
+  text-decoration: bold;
+  box-shadow: 0 6px #999;
+  justify-content: center;
+}
+
+#play-again-button:hover {
+  background-color: #3e8e41;
+}
+
+#play-again-button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.play-again-button2{
+  justify-content: center;
+  align-items: center;
 }

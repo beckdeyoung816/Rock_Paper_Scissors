@@ -1,42 +1,90 @@
 // SVGs:
+var SVGs = {
+    'rock': {"src" : "https://raw.githubusercontent.com/mohamedabusrea/YT-rock-paper-scissors-game/master/images/icon-rock.svg",
+             "rotate": 'rotate(90deg)'},
+    'paper': {"src" :"https://raw.githubusercontent.com/mohamedabusrea/YT-rock-paper-scissors-game/master/images/icon-paper.svg",
+             "rotate": 'rotate(90deg)'},
+    'scissors': {"src" :"https://raw.githubusercontent.com/mohamedabusrea/YT-rock-paper-scissors-game/master/images/icon-scissors.svg",
+                "rotate": 'rotate(45deg)'}
+}
 
-// var SVGs = {
-//     'rock': "https://github.com/mohamedabusrea/YT-rock-paper-scissors-game/blob/master/images/icon-rock.svg",
-//     'paper': "https://github.com/mohamedabusrea/YT-rock-paper-scissors-game/blob/master/images/icon-paper.svg",
-//     'scissors': "https://github.com/mohamedabusrea/YT-rock-paper-scissors-game/blob/master/images/icon-scissors.svg"
-// }
 // get the number of times entered from the search url
-var numTimesEntered = window.location.search;
-console.log(numTimesEntered)
-numTimesEntered = numTimesEntered.replace("?timesToPlay=", "");
+const url = new URL(window.location.href);
+// Get the search parameters from the URL
+const searchParams = url.searchParams;
+
+// Get the number of times entered from the search parameters
+let roundsLeft = searchParams.get("timesToPlay");
+let playerScore = parseFloat(searchParams.get("playerScore"));
+let computerScore = parseFloat(searchParams.get("computerScore"));
+
+// If the user enters a number less than 1, redirect them to the home page
+if (roundsLeft < 1) {window.location.href = "index.html";}
+
+// When the DOM is loaded, update the header text to show the number of times entered
 document.addEventListener("DOMContentLoaded", () => { 
   var curVal = document.getElementById("header-text").innerText;
   console.log(curVal)
-  times = numTimesEntered == "1" ? " time" : " times"
-  curVal = curVal + " " + numTimesEntered.toString() + times;
+  times = roundsLeft == "1" ? " more time" : " more times"
+  curVal = curVal + " " + roundsLeft.toString() + times;
   document.getElementById("header-text").innerText = curVal;
+
+  updateScore();
 })
 
-const displayChoicePNGs = (playerChoice, computerChoice) => {
-    // display svg for player choice
-    document.getElementById("player-choice").src = SVGs[playerChoice];
+const updateScore = () => {
+    document.getElementById("player-score").innerHTML = "Player: " + playerScore.toString();
+    document.getElementById("computer-score").innerHTML = "Computer: " + computerScore.toString();
+    for (let element of document.getElementsByClassName("score-display")){
+        element.style.display="flex";
+        }
 
 }
 
-
-const playGame = () => {
-    const playerChoice = getPlayerChoice();
+const playRound = (playerChoice) => {
     const computerChoice = makeComputerPlay();
+    console.log("player choice: " + playerChoice);
+    console.log("computer choice: " + computerChoice);
     const winner = evaluateWinner(playerChoice, computerChoice);
+
+    for (let element of document.getElementsByClassName("move-choice")){
+        element.style.display="none";
+     }
+
+     for (let element of document.getElementsByClassName("game-header")){
+        element.style.display="none";
+     }
+    
+    //  Set the style of class result-choices to flex
+    for (let element of document.getElementsByClassName("result-choices")){
+        element.style.display="flex";}
+
+    document.getElementById("player-choice").src = SVGs[playerChoice]['src'];
+    document.getElementById("player-choice").style.transform = SVGs[playerChoice]['rotate'];
+
+    document.getElementById("computer-choice").src = SVGs[computerChoice]['src'];
+    document.getElementById("computer-choice").style.transform = SVGs[computerChoice]['rotate']
+    // Flip the computer choice svg horizontally
+    document.getElementById("computer-choice").style.transform += " scaleY(-1)";
+
+    
+    document.getElementById("result-text").style.display = "flex";
     if (winner == "player") {
-        document.getElementById("header-winning").style.display = "block";
-        document.getElementById("header-losing").style.display = "none";
-        document.getElementById("header-tie").style.display = "none";
+        document.getElementById("result-text").innerHTML = "You win!";
+        playerScore += 1;
     } else if (winner == "computer") {
-        document.getElementById("header-winning").style.display = "none";
-        document.getElementById("header-losing").style.display = "block";
-        document.getElementById("header-tie").style.display = "none";
+        document.getElementById("result-text").innerHTML = "You lose!";
+        computerScore += 1;
+    } else if (winner == "tie"){
+        document.getElementById("result-text").innerHTML = "It's a tie!";
+        playerScore += 0.5;
+        computerScore += 0.5;
     }
+
+    updateScore();
+
+    // Play again button
+    document.getElementById("play-again-button").style.display = "flex";
 }
 
 const makeComputerPlay = () => {
@@ -75,4 +123,30 @@ const evaluateWinner = (playerChoice, computerChoice) => {
         return "computer";
     }
 
+}
+
+const playAgain = () => {
+    let newUrl = "game.html?timesToPlay=" + encodeURIComponent((roundsLeft-1).toString());
+    newUrl += "&playerScore=" + encodeURIComponent(playerScore.toString());
+    newUrl += "&computerScore=" + encodeURIComponent(computerScore.toString());
+    window.location.href = newUrl;
+}
+
+const rockSmashesScissors = () => {
+    // make an animation of a rock svg hitting a scissors svg
+}
+
+const paperCoversRock = () => {
+}
+
+const scissorsCutPaper = () => {
+}
+
+const rockTiesRock = () => {
+}
+
+const paperTiesPaper = () => {
+}
+
+const scissorsTiesScissors = () => {
 }

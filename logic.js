@@ -3,5 +3,8 @@ const startButton = document.getElementById("start-button");
 const startGame = () => {
     const numTimesEntered = document.getElementById("num-rounds").value;
     console.log(numTimesEntered)
-    window.location.href = "game.html?timesToPlay=" + encodeURIComponent(numTimesEntered.toString());
+    let url = "game.html?timesToPlay=" + encodeURIComponent(numTimesEntered.toString());
+    url += "&playerScore=0&computerScore=0";
+    console.log(url);
+    window.location.href = url;
 }

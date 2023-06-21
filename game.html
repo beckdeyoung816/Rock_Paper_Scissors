@@ -11,6 +11,10 @@
         <div class="game-header">
             <h1>The game is afoot</h1>
             <h2 id="header-text">You have chosen to lose</h2>
+            <h2 id="fight-text">Choose your fighter</h2>
+        </div>
+        <div>
+            <h2 id="result-text"></h2>
         </div>
         <div class="move-choices">
             <div class="move-choice">
@@ -27,8 +31,20 @@
                 <button class="move-choice-button" id="scissors-button" onclick="playRound('scissors')">
                     <img src="https://raw.githubusercontent.com/mohamedabusrea/YT-rock-paper-scissors-game/master/images/icon-scissors.svg"/>
                 </button>
-        </div>
+            </div>
 
+            <div class="result-choices">
+                <img id="player-choice" class="result-image"/>
+                <img id="computer-choice" class="result-image"/>
+            </div>
+        </div>
+        <div class="result-display">
+            <div class="score-display">
+                <h3 id="player-score"></h3>
+                <h3 id="computer-score"></h3>
+            </div>
+        <div class="play-again-button2">
+            <button id="play-again-button" onclick="playAgain()">Play Again</button>
         </div>
     </div>
     <script src="gameLogic.js"></script>
