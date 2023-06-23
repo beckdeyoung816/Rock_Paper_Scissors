@@ -54,7 +54,7 @@
 }
 
 .game-header{
-    margin-top: 15%;
+    margin-top: 5%;
     height: 150px;
 }
 
@@ -123,15 +123,21 @@
   width: 100px;
 }
 
-.score-display{
+#result-image-single{
   display: none;
+  height: 400px;
+  width: 400px;
+}
+
+.score-display{
+  display: flex;
   flex-direction: column;
   /* make a thick border around the div */
   border: 5px solid black;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 20px;
-  padding-left: 40px;
-  padding-right: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 #play-again-button{
@@ -145,6 +151,7 @@
   text-decoration: bold;
   box-shadow: 0 6px #999;
   justify-content: center;
+  align-items: center;
 }
 
 #play-again-button:hover {
@@ -157,7 +164,19 @@
   transform: translateY(4px);
 }
 
-.play-again-button2{
+.play-again{
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.result-text-display{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  font-weight: bold;
+  justify-content: center;
+  color: red
 }

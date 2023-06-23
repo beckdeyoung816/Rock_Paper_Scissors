@@ -5,6 +5,5 @@ const startGame = () => {
     console.log(numTimesEntered)
     let url = "game.html?timesToPlay=" + encodeURIComponent(numTimesEntered.toString());
     url += "&playerScore=0&computerScore=0";
-    console.log(url);
     window.location.href = url;
 }

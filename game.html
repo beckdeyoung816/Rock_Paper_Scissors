@@ -32,20 +32,26 @@
                     <img src="https://raw.githubusercontent.com/mohamedabusrea/YT-rock-paper-scissors-game/master/images/icon-scissors.svg"/>
                 </button>
             </div>
+        </div>
 
-            <div class="result-choices">
-                <img id="player-choice" class="result-image"/>
-                <img id="computer-choice" class="result-image"/>
-            </div>
+    <div>
+        <img id="result-image-single"/>
+    </div>
+    <div class="result-choices">
+        <img id="player-choice" class="result-image"/>
+        <img id="computer-choice" class="result-image"/>
+    </div>
+    <div class="result-display">
+        <div class="score-display">
+            <h2 style="color: blue;">Score</h2>
+            <h3 id="player-score"></h3>
+            <h3 id="computer-score"></h3>
         </div>
-        <div class="result-display">
-            <div class="score-display">
-                <h3 id="player-score"></h3>
-                <h3 id="computer-score"></h3>
-            </div>
-        <div class="play-again-button2">
-            <button id="play-again-button" onclick="playAgain()">Play Again</button>
-        </div>
+    </div>
+    <div class="play-again">
+        <button id="play-again-button" onclick="playAgain()">Play Again</button>
+        <h4 id="play-again-text"></h4>
+    </div>
     </div>
     <script src="gameLogic.js"></script>
 </body>
