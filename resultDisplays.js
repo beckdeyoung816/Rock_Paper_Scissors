@@ -1,4 +1,4 @@
-const rockSmashesScissors = () => {
+export function rockSmashesScissors(){
     // We want the rock to be the element on the right. So we make it the "player choice"
     showPickedChoices("rock", "scissors");
     let rock = document.getElementById("player-choice");
@@ -25,21 +25,21 @@ const rockSmashesScissors = () => {
     } );
 }
 
-const paperCoversRock = () => {
+export function paperCoversRock(){
     document.getElementById('result-text').style.height = "50px";
     let img = document.getElementById("result-image-single");
     img.src = "https://dottech.org/wp-content/uploads/2013/02/paper_beats_rock_comic.jpg";
     img.style.display = "flex";
 }
 
-const scissorsCutPaper = () => {
+export function scissorsCutPaper(){
     document.getElementById('result-text').style.height = "50px";
     let img = document.getElementById("result-image-single");
     img.src = "https://thumbs.gfycat.com/ContentRemarkableAfricanwildcat-max-1mb.gif";
     img.style.display = "flex";
 }
 
-const rockTiesRock = () => {
+export function rockTiesRock(){
     let playerChoice = document.getElementById("player-choice");
     let originalPlayerTransform = playerChoice.style.transform;
     let computerChoice = document.getElementById("computer-choice");
@@ -62,7 +62,7 @@ const rockTiesRock = () => {
     }, 50);
 }
 
-const paperTiesPaper = () => {
+export function paperTiesPaper(){
     showPickedChoices("paper", "paper");
     let playerChoice = document.getElementById("player-choice");
     let computerChoice = document.getElementById("computer-choice");
@@ -102,7 +102,7 @@ const paperTiesPaper = () => {
     }, 50);
 }
 
-const scissorsTiesScissors = () => {
+export function scissorsTiesScissors(){
     showPickedChoices("scissors", "scissors");
     let playerChoice = document.getElementById("player-choice");
     let ogPlayerTransform = playerChoice.style.transform;
@@ -130,4 +130,4 @@ const scissorsTiesScissors = () => {
 
 }
 
-export { rockSmashesScissors, paperCoversRock, scissorsCutPaper, rockTiesRock, paperTiesPaper, scissorsTiesScissors };
+// export { rockSmashesScissors, paperCoversRock, scissorsCutPaper, rockTiesRock, paperTiesPaper, scissorsTiesScissors };

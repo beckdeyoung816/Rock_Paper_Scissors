@@ -53,12 +53,13 @@
     height: 100vh;
 }
 
+/* Text at top of page */
 .game-header{
     margin-top: 5%;
     height: 150px;
 }
 
-
+/* container for holder rock,paper,scissor buttons  */
 .move-choices{
     display: flex;
     flex-direction: row;
@@ -67,6 +68,7 @@
     margin-top: 5%;
 }
 
+/* Rock paper or scissor button */
 .move-choice-button{
     margin: 0 10px;
     height: 200px;
@@ -98,6 +100,7 @@
 .move-choice-button:hover {
   background-color: #3e8e41;
 }
+
 
 #result-text{
   display: none;
